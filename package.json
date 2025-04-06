@@ -1,0 +1,12 @@
+{
+  "name": "invoice-generator",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "http-server . -o"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

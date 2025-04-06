@@ -1,0 +1,155 @@
+/* Core styles */
+:root {
+    --text: #1a1a1a;
+    --border: #ddd;
+    --bg: #fff;
+    --bg-alt: #f5f5f5;
+    --space: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+    color: var(--text);
+    padding: var(--space);
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Layout */
+.invoice-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: calc(var(--space) * 2);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: calc(var(--space) * 3);
+}
+
+.header h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Parties grid */
+.parties {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(var(--space) * 2);
+    margin-bottom: calc(var(--space) * 3);
+}
+
+.party {
+    padding: var(--space);
+}
+
+.party h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space);
+}
+
+address {
+    font-style: normal;
+    margin-bottom: var(--space);
+}
+
+/* Details and meta info */
+.details,
+.meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem var(--space);
+}
+
+.details dt,
+.meta dt {
+    font-weight: 600;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: calc(var(--space) * 2) 0;
+}
+
+th, td {
+    padding: calc(var(--space) * 0.75);
+    text-align: left;
+    border: 1px solid var(--border);
+}
+
+th {
+    background: var(--bg-alt);
+    font-weight: 600;
+}
+
+.total th {
+    text-align: right;
+}
+
+.total td {
+    font-weight: 600;
+}
+
+/* Amount and signatures */
+.amount {
+    margin: calc(var(--space) * 2) 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.signatures {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(var(--space) * 2);
+    margin-top: calc(var(--space) * 4);
+}
+
+.sign-title {
+    font-weight: 600;
+    margin-bottom: calc(var(--space) * 0.5);
+}
+
+.sign-name {
+    margin-bottom: calc(var(--space) * 2);
+}
+
+.sign-line {
+    border-top: 1px solid var(--text);
+    width: 100%;
+    height: 1px;
+}
+
+/* Print styles */
+@media print {
+    body {
+        padding: 0;
+        background: none;
+    }
+
+    .invoice-container {
+        max-width: none;
+        padding: 0;
+        box-shadow: none;
+    }
+} 

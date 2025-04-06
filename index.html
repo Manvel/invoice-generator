@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Invoice #105 for Mock Client Inc.">
+    <title>Invoice #105 - Mock Client Inc.</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="invoice-container">
+        <header class="header">
+            <h1>Invoice</h1>
+        </header>
+
+        <div class="parties">
+            <article class="party issuer">
+                <h2>Service Provider</h2>
+                <address>
+                    <strong>"John Doe" PE</strong><br>
+                    Example 3 str., Apt. 101<br>
+                    Amsterdam, Netherlands
+                </address>
+                <dl class="details">
+                    <dt>TIN</dt>
+                    <dd>12345678</dd>
+                    <dt>Bank Account</dt>
+                    <dd>1234567890123456</dd>
+                    <dt>Bank</dt>
+                    <dd>"MOCK BANK" CJSC</dd>
+                    <dt>SWIFT</dt>
+                    <dd>MOCKAM22</dd>
+                    <dt>Bank Address</dt>
+                    <dd>1 Bank Street, Amsterdam 1011</dd>
+                    <dt>Intermediary</dt>
+                    <dd>MOCK BANK EU</dd>
+                    <dt>Intermediary SWIFT</dt>
+                    <dd>MOCKEM22</dd>
+                </dl>
+            </article>
+
+            <article class="party client">
+                <h2>Client</h2>
+                <address>
+                    <strong>Mock Client Inc.</strong><br>
+                    123 Example Street<br>
+                    San Francisco, CA 94101<br>
+                    United States
+                </address>
+                <dl class="meta">
+                    <dt>Invoice No</dt>
+                    <dd>105</dd>
+                    <dt>Invoice Date</dt>
+                    <dd>04.04.2025</dd>
+                    <dt>Services Agreement Date</dt>
+                    <dd>15.02.2023</dd>
+                </dl>
+            </article>
+        </div>
+
+        <section class="items">
+            <table>
+                <caption class="sr-only">Invoice Items</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Period</th>
+                        <th scope="col">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Development services (per agreement)</td>
+                        <td>1</td>
+                        <td>01.03-31.03.2025</td>
+                        <td>$1,800</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Reimbursable expenses</td>
+                        <td>1</td>
+                        <td>01.03-31.03.2025</td>
+                        <td>$200</td>
+                    </tr>
+                    <tr class="total">
+                        <th scope="row" colspan="4">Total</th>
+                        <td>$2,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <p class="amount">
+            Amount in words: <span>Two thousand US Dollars</span>
+        </p>
+
+        <footer class="signatures">
+            <div class="sign-block">
+                <p class="sign-title">SERVICE PROVIDER / Contractor</p>
+                <p class="sign-name">John Doe</p>
+                <div class="sign-line" aria-label="Signature line"></div>
+            </div>
+            <div class="sign-block">
+                <p class="sign-title">CLIENT AND PAYER / Company</p>
+                <p class="sign-name">Mock Client Inc.</p>
+                <div class="sign-line" aria-label="Signature line"></div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html> 
