@@ -83,6 +83,7 @@ address {
 .details dt,
 .meta dt {
     font-weight: 600;
+    max-width: 110px;
 }
 
 /* Table */

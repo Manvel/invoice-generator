@@ -5,13 +5,13 @@ export const state = {
         city: "Amsterdam",
         country: "Netherlands",
         tin: "12345678",
-        tinName: "TIN",
-        bankAccount: "1234567890123456",
-        bankName: "MOCK BANK CJSC",
+        tinName: "NIE",
+        beneficiary: "John Doe PE",
+        iban: "ES91 2100 0418 4502 0005 1332",
         swift: "MOCKAM22",
-        bankAddress: "1 Bank Street, Amsterdam 1011",
-        intermediaryBank: "MOCK BANK EU",
-        intermediarySwift: "MOCKEM22"
+        bankName: "MOCK BANK CJSC",
+        bankAddress: "123 Mock Street, 5th Floor, 28001, Madrid, Spain",
+        correspondentSwift: "MOCKEM22"
     },
     client: {
         name: "Mock Client Inc.",
