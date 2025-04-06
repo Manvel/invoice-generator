@@ -1,3 +1,5 @@
+import { numberToWords } from './numberToWords.js';
+
 // Initial state
 const state = {
     provider: {
@@ -59,6 +61,9 @@ function updateDOM() {
 
     // Update invoice items
     const itemsContainer = document.querySelector('[data-invoice="items"]');
+    const totalAmount = state.invoice.items.reduce((sum, item) => sum + item.amount, 0);
+    const amountInWords = numberToWords(totalAmount);
+    
     itemsContainer.innerHTML = state.invoice.items.map((item, index) => `
         <tr>
             <td>${index + 1}</td>
@@ -70,9 +75,18 @@ function updateDOM() {
     `).join('') + `
         <tr class="total">
             <th colspan="4">Total</th>
-            <td>$${state.invoice.items.reduce((sum, item) => sum + item.amount, 0).toLocaleString()}</td>
+            <td>$${totalAmount.toLocaleString()}</td>
         </tr>
     `;
+
+    // Add amount in words section after the table
+    const amountInWordsDiv = document.createElement('div');
+    amountInWordsDiv.className = 'amount-in-words';
+    amountInWordsDiv.innerHTML = `
+        <div class="amount-label">Amount to be paid: $${totalAmount.toLocaleString()}</div>
+        <div class="amount-words">${amountInWords} US Dollars</div>
+    `;
+    itemsContainer.parentNode.insertAdjacentElement('afterend', amountInWordsDiv);
 }
 
 // Initialize the application

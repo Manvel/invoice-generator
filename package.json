@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "esbuild src/app.js --bundle --outfile=dist/bundle.js --watch --servedir=.",
-    "build": "esbuild src/app.js --bundle --outfile=dist/bundle.js"
+    "build": "esbuild src/app.js --bundle --outfile=dist/bundle.js",
+    "test": "node test/numberToWords.test.js"
   },
   "devDependencies": {
     "esbuild": "^0.20.1"
