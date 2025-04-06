@@ -5,6 +5,7 @@ export const state = {
         city: "Amsterdam",
         country: "Netherlands",
         tin: "12345678",
+        tinName: "TIN",
         bankAccount: "1234567890123456",
         bankName: "MOCK BANK CJSC",
         swift: "MOCKAM22",

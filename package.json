@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "setup": "mkdir -p dist && cp src/index.html src/data.js styles.css dist/",
-    "dev": "npm run build && esbuild src/app.js --bundle --outfile=dist/bundle.js --watch --servedir=dist",
-    "build": "npm run setup && esbuild src/app.js --bundle --outfile=dist/bundle.js",
+    "dev": "node build.js --watch",
+    "build": "node build.js",
     "test": "node test/numberToWords.test.js"
   },
   "devDependencies": {
