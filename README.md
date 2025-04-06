@@ -9,11 +9,17 @@ A simple, lightweight invoice generator built with vanilla JavaScript. This appl
 - Simple data-attribute based templating
 - Automatic total calculation
 - Supports multiple invoice items
-- Bank details and company information
-- Client information section
+- Detailed bank information including:
+  - Beneficiary details
+  - IBAN
+  - BIC/SWIFT code
+  - Bank name and address
+  - Correspondent bank BIC
+- Company and client information sections
 - Digital signature blocks
 - Fast builds with esbuild
 - Built-in development server with live reload
+- Automatic file watching and regeneration
 
 ## Getting Started
 
@@ -56,7 +62,7 @@ This will create a bundled version in the `dist` directory.
 
 ### Modifying Company Information
 
-Edit the `state.provider` object in `src/app.js` to update your company details:
+Edit the `state.provider` object in `src/data.js` to update your company details:
 
 ```javascript
 provider: {
@@ -65,18 +71,19 @@ provider: {
     city: "Your City",
     country: "Your Country",
     tin: "Your Tax ID",
-    bankAccount: "Your Bank Account",
+    tinName: "TIN/NIE",
+    beneficiary: "Your Name",
+    iban: "Your IBAN",
+    swift: "Your BIC/SWIFT Code",
     bankName: "Your Bank Name",
-    swift: "Your SWIFT Code",
     bankAddress: "Your Bank Address",
-    intermediaryBank: "Your Intermediary Bank",
-    intermediarySwift: "Your Intermediary SWIFT"
+    correspondentSwift: "Your Correspondent Bank BIC"
 }
 ```
 
 ### Adding Invoice Items
 
-Modify the `state.invoice.items` array in `src/app.js`:
+Modify the `state.invoice.items` array in `src/data.js`:
 
 ```javascript
 items: [
@@ -91,7 +98,7 @@ items: [
 
 ### Updating Client Information
 
-Update the `state.client` object in `src/app.js`:
+Update the `state.client` object in `src/data.js`:
 
 ```javascript
 client: {
@@ -102,24 +109,40 @@ client: {
 }
 ```
 
+### Updating Invoice Details
+
+Modify the `state.invoice` object in `src/data.js`:
+
+```javascript
+invoice: {
+    number: "Invoice Number",
+    date: "Invoice Date",
+    agreementDate: "Agreement Date",
+    items: [...]
+}
+```
+
 ## Project Structure
 
 ```
 invoice-generator/
-├── index.html          # Main HTML template
-├── styles.css          # Styles for the invoice
 ├── src/
-│   └── app.js         # Application logic and state management
-└── dist/
-    └── bundle.js      # Bundled JavaScript (generated)
+│   ├── app.js         # Main application logic
+│   ├── data.js        # Invoice data and configuration
+│   ├── index.html     # Invoice template
+│   └── numberToWords.js # Number to words conversion
+├── dist/              # Built files
+├── styles.css         # Invoice styles
+└── package.json       # Project configuration
 ```
 
 ## Development
 
-The application uses:
-- Data attributes for dynamic content (`data-provider`, `data-client`, `data-invoice`)
-- ES6+ JavaScript
-- esbuild for bundling and development server
+The project uses esbuild for fast builds and a custom build script for file watching. When you run `npm run dev`:
+
+1. The build script watches for changes in the `src` directory
+2. Any changes trigger a rebuild of the project
+3. The development server automatically serves the updated files
 
 ## License
 
