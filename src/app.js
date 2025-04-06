@@ -1,5 +1,6 @@
 import { numberToWords } from './numberToWords.js';
 import { state } from './data.js';
+import { html, render } from 'lit-html';
 
 // Helper function to update elements with data attributes
 function updateElements(category, data) {
@@ -16,31 +17,36 @@ function updateDOM() {
     // Update provider, client, and invoice details
     updateElements('provider', state.provider);
     updateElements('client', state.client);
-    updateElements('invoice', state.invoice);
 
     // Update invoice items
     const itemsContainer = document.querySelector('[data-invoice="items"]');
     const totalAmount = state.invoice.items.reduce((sum, item) => sum + item.amount, 0);
     const amountInWords = numberToWords(totalAmount);
     
-    itemsContainer.innerHTML = state.invoice.items.map((item, index) => `
-        <tr>
-            <td>${index + 1}</td>
-            <td>${item.description}</td>
-            <td>${item.quantity}</td>
-            <td>${item.period}</td>
-            <td>$${item.amount.toLocaleString()}</td>
-        </tr>
-    `).join('') + `
+    const itemsTemplate = html`
+        ${state.invoice.items.map((item, index) => html`
+            <tr>
+                <td>${index + 1}</td>
+                <td>${item.description}</td>
+                <td>${item.quantity}</td>
+                <td>${item.period}</td>
+                <td>$${item.amount.toLocaleString()}</td>
+            </tr>
+        `)}
         <tr class="total">
             <th colspan="4">Total</th>
             <td>$${totalAmount.toLocaleString()}</td>
         </tr>
     `;
+    
+    render(itemsTemplate, itemsContainer);
 
     // Update amount in words
-    document.querySelector('[data-invoice="totalAmount"]').textContent = `Amount to be paid: $${totalAmount.toLocaleString()}`;
-    document.querySelector('[data-invoice="amountInWords"]').textContent = `${amountInWords} US Dollars`;
+    const amountLabel = document.querySelector('[data-invoice="totalAmount"]');
+    const amountWords = document.querySelector('[data-invoice="amountInWords"]');
+    
+    render(html`Amount to be paid: $${totalAmount.toLocaleString()}`, amountLabel);
+    render(html`${amountInWords} US Dollars`, amountWords);
 }
 
 // Initialize the application
