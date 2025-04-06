@@ -4,12 +4,10 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "http-server . -o",
-    "build": "esbuild src/app.js --bundle --outfile=dist/bundle.js",
-    "watch": "esbuild src/app.js --bundle --outfile=dist/bundle.js --watch"
+    "dev": "esbuild src/app.js --bundle --outfile=dist/bundle.js --watch --servedir=.",
+    "build": "esbuild src/app.js --bundle --outfile=dist/bundle.js"
   },
   "devDependencies": {
-    "http-server": "^14.1.1",
     "esbuild": "^0.20.1"
   },
   "dependencies": {

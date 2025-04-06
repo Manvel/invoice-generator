@@ -13,12 +13,13 @@ A simple, lightweight invoice generator built with vanilla JavaScript. This appl
 - Client information section
 - Digital signature blocks
 - Fast builds with esbuild
+- Built-in development server with live reload
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (for development server)
+- Node.js
 
 ### Installation
 
@@ -39,7 +40,11 @@ npm install
 ```bash
 npm run dev
 ```
-This will start a local server and open the application in your default browser.
+This will:
+- Start a development server
+- Watch for changes in your source files
+- Automatically rebuild when changes are detected
+- Open the application in your default browser
 
 2. For production build:
 ```bash
@@ -114,8 +119,7 @@ invoice-generator/
 The application uses:
 - Data attributes for dynamic content (`data-provider`, `data-client`, `data-invoice`)
 - ES6+ JavaScript
-- esbuild for bundling
-- http-server for local development
+- esbuild for bundling and development server
 
 ## License
 
