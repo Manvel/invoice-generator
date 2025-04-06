@@ -17,7 +17,7 @@ export const state = {
         name: "Mock Client Inc.",
         nameSign: "Mock Client Inc.",
         address: "123 Example Street",
-        city: "San Francisco, CA 94101",
+        city: "San Francisco, CA 34102",
         country: "United States"
     },
     invoice: {

@@ -6,7 +6,7 @@ import { html, render } from 'lit-html';
 function updateElements(category, data) {
     document.querySelectorAll(`[data-${category}]`).forEach(element => {
         const field = element.getAttribute(`data-${category}`);
-        if (data[field] !== undefined) {
+        if (data[field] !== undefined && field !== 'items') {
             element.textContent = data[field];
         }
     });
@@ -17,6 +17,7 @@ function updateDOM() {
     // Update provider, client, and invoice details
     updateElements('provider', state.provider);
     updateElements('client', state.client);
+    updateElements('invoice', state.invoice);
 
     // Update invoice items
     const itemsContainer = document.querySelector('[data-invoice="items"]');
