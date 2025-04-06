@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "setup": "mkdir -p dist && cp index.html styles.css dist/",
-    "dev": "npm run setup && esbuild src/app.js --bundle --outfile=dist/bundle.js --watch --servedir=dist",
+    "setup": "mkdir -p dist && cp src/index.html styles.css dist/",
+    "dev": "npm run build && esbuild src/app.js --bundle --outfile=dist/bundle.js --watch --servedir=dist",
     "build": "npm run setup && esbuild src/app.js --bundle --outfile=dist/bundle.js",
     "test": "node test/numberToWords.test.js"
   },
