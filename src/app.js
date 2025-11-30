@@ -19,6 +19,13 @@ function updateDOM() {
     updateElements('client', state.client);
     updateElements('invoice', state.invoice);
 
+    // Hide client sign-block if nameSign is not provided
+    const clientSignBlock = document.querySelectorAll('.sign-block')[1];
+    if (clientSignBlock) {
+        const hasSignature = state.client?.nameSign && state.client.nameSign.trim() !== '';
+        clientSignBlock.style.display = hasSignature ? '' : 'none';
+    }
+
     // Update invoice items
     const itemsContainer = document.querySelector('[data-invoice="items"]');
     const totalAmount = state.invoice.items.reduce((sum, item) => sum + item.amount, 0);
